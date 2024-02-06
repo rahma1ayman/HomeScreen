@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:ieee/models.dart';
-
-import 'button.dart';
+import 'package:ieee/widgets/categories.dart';
+import 'package:ieee/widgets/events.dart';
+import 'package:ieee/widgets/titleRow.dart';
+import 'widgets/button.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
-  MainRow mainRow = MainRow();
-  final int _selectedIconBar=0;
+  const HomeScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,85 +21,44 @@ class HomeScreen extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 19),
+      body: const Padding(
+        padding: EdgeInsets.only(left: 19),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 12, bottom: 12),
-              child: mainRow.titleItem(title: 'News'),
+              padding: EdgeInsets.only(top: 12, bottom: 12),
+              child: TitleRow(title: 'News'),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  mainRow.rowItems(
-                      image: 'images/pic1.jpeg',
-                      text: 'Sherlock is a British mystery crime series'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowItems(
-                      image: 'images/pic1.jpeg',
-                      text: 'Sherlock is a British mystery crime series'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowItems(
-                      image: 'images/pic1.jpeg',
-                      text: 'Sherlock is a British mystery crime series'),
-                ],
-              ),
+            SizedBox(
+              height: 120,
+              child: CategoryData1(
+                  image: 'images/pic1.jpeg',
+                  text: 'Sherlock is a British mystery crime series'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 12, bottom: 12),
-              child: mainRow.titleItem(title: 'Events'),
+              padding: EdgeInsets.only( top: 12,bottom: 12),
+              child: TitleRow(title: 'Events'),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  mainRow.rowEvents(title: 'GHOSTECH', subtitle: 'Our exciting 5-day of Ghostech serves a dynamic blend of technical workshops', months: 'Feb', day: '30'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowEvents(title: 'GHOSTECH', subtitle: 'Our exciting 5-day of Ghostech serves a dynamic blend of technical workshops', months: 'Feb', day: '30'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowEvents(title: 'GHOSTECH', subtitle: 'Our exciting 5-day of Ghostech serves a dynamic blend of technical workshops', months: 'Feb', day: '30'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: 140,
+              child: Events(
+                  title: 'GHOSTECH',
+                  subTitle:
+                      'Our exciting 5-day of Ghostech serves a dynamic blend of technical workshops',
+                  month: 'Feb',
+                  day: '30'),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 12, bottom: 12),
-              child: mainRow.titleItem(title: 'Awards'),
+              padding: EdgeInsets.only( top: 12,bottom: 12),
+              child: TitleRow(title: 'Awards'),
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  mainRow.rowItems(
-                      image: 'images/pic2.jpeg',
-                      text: 'IEEE Region8 Entrepreneurship week 2022'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowItems(
-                      image: 'images/pic2.jpeg',
-                      text: 'IEEE Region8 Entrepreneurship week 2022'),
-                  const SizedBox(
-                    width: 19,
-                  ),
-                  mainRow.rowItems(
-                      image: 'images/pic2.jpeg',
-                      text: 'IEEE Region8 Entrepreneurship week 2022'),
-                ],
-              ),
+            SizedBox(
+              height: 120,
+              child: CategoryData1(
+                  image: 'images/pic2.jpeg',
+                  text: 'IEEE Region8 Entrepreneurship week 2022'),
             ),
+
           ],
         ),
       ),
@@ -109,4 +66,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
